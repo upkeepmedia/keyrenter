@@ -2,7 +2,7 @@
   <div class="flex flex-row">
     <div class="w-1/2 rounded-2xl relative duration-500 transition-all" :class="inView ? 'translate-x-0 opacity-100':'-translate-x-16 opacity-0'">
       {{
-        page.media[page.header.featured_image].html(
+        page.media[page.header.featured_image].loading.html(
           'About',
           '',
           'absolute top-0 bottom-0 h-full w-full object-cover rounded-r-2xl'

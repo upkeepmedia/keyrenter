@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledBlueprints',
-    'timestamp' => 1682692131,
-    'checksum' => '83f449635f4c8796a2f4a37f7608c048',
+    'timestamp' => 1683664589,
+    'checksum' => '908c59ad163cae6cb51642f85a96f9e9',
     'files' => [
         'system/blueprints/config' => [
             'backups' => [
@@ -54,6 +54,10 @@ return [
             'plugins/problems' => [
                 'file' => 'user/plugins/problems/blueprints.yaml',
                 'modified' => 1679506277
+            ],
+            'plugins/webp' => [
+                'file' => 'user/plugins/webp/blueprints.yaml',
+                'modified' => 1677130398
             ],
             'plugins/devtools' => [
                 'file' => 'user/plugins/devtools/blueprints.yaml',
@@ -4665,6 +4669,50 @@ return [
                 'name' => 'plugins.problems.built_in_css',
                 'validation' => 'strict'
             ],
+            'plugins.webp' => [
+                'type' => '_root',
+                'form_field' => false,
+                'form' => [
+                    'validation' => 'loose'
+                ]
+            ],
+            'plugins.webp.enabled' => [
+                'type' => 'toggle',
+                'outerclasses' => 'conditional condition',
+                'label' => 'PLUGIN_ADMIN.PLUGIN_STATUS',
+                'highlight' => 1,
+                'default' => 0,
+                'options' => [
+                    1 => 'PLUGIN_ADMIN.ENABLED',
+                    0 => 'PLUGIN_ADMIN.DISABLED'
+                ],
+                'validate' => [
+                    'type' => 'bool'
+                ],
+                'name' => 'plugins.webp.enabled',
+                'validation' => 'loose'
+            ],
+            'plugins.webp.quality' => [
+                'type' => 'quality',
+                'outerclasses' => 'conditional option option-1',
+                'label' => 'PLUGIN_WEBP.QUALITY_FIELD_LABEL',
+                'name' => 'plugins.webp.quality',
+                'validation' => 'loose'
+            ],
+            'plugins.webp.conversion' => [
+                'type' => 'conversion',
+                'outerclasses' => 'conditional option option-1',
+                'label' => 'PLUGIN_WEBP.CONVERSION_FIELD_LABEL',
+                'name' => 'plugins.webp.conversion',
+                'validation' => 'loose'
+            ],
+            'plugins.webp.clear_all' => [
+                'type' => 'clear_all',
+                'outerclasses' => 'conditional option option-1',
+                'label' => 'PLUGIN_WEBP.CLEAR_ALL_FIELD_LABEL',
+                'name' => 'plugins.webp.clear_all',
+                'validation' => 'loose'
+            ],
             'plugins.devtools' => [
                 'type' => '_root',
                 'form_field' => false,
@@ -6346,6 +6394,12 @@ return [
                 'problems' => [
                     'enabled' => 'plugins.problems.enabled',
                     'built_in_css' => 'plugins.problems.built_in_css'
+                ],
+                'webp' => [
+                    'enabled' => 'plugins.webp.enabled',
+                    'quality' => 'plugins.webp.quality',
+                    'conversion' => 'plugins.webp.conversion',
+                    'clear_all' => 'plugins.webp.clear_all'
                 ],
                 'devtools' => [
                     'enabled' => 'plugins.devtools.enabled',

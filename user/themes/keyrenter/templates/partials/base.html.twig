@@ -23,8 +23,8 @@
     {% endblock %}
 
     {% block stylesheets %}
-      {% do assets.addCss('https://use.typekit.net/fcg6zas.css', 98) %}
-      {% do assets.addCss('theme://dist/css/site' ~ extension ~ '.css', 98) %}
+      {% do assets.addCss('https://use.typekit.net/fcg6zas.css', {group: 'kr'}) %}
+      {% do assets.addCss('theme://dist/css/site' ~ extension ~ '.css', {group: 'kr'}) %}
     {% endblock %}
 
     {% block javascripts %}
@@ -32,7 +32,7 @@
     {% endblock %}
 
     {% block assets deferred %}
-    {{ assets.css()|raw }}
+    {{ assets.css('kr')|raw }}
     {{ assets.js()|raw }}
     {% endblock %}
   </head>

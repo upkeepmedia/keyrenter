@@ -20,7 +20,7 @@
     <img 
       :class="inView ? 'translate-y-0' : 'translate-y-full'"
       class="transition-all duration-700 delay-500 ease-in-out w-3/4 mx-auto relative bottom-0 z-10"
-      src="{{ page.media[page.header.featured_image].url()|raw }}" />
+      :src="inView ? '{{ page.media[page.header.featured_image].url()|raw }}' : '' " />
       <div class="absolute bottom-0 z-20 transition-all duration-500" x-cloak :class="inView ? 'opacity-100 left-0' : 'opacity-0 left-10'">
         {{svg_image('theme://images/rental-things.svg')|raw}}
       </div>

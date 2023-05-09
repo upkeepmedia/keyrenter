@@ -13,7 +13,7 @@
               {{svg_image(page.media[icon].filepath)|replace({'alpine':':class', 'index':loop.parent.loop.index})|raw}}
               </div>
             {% endfor %}
-            <img class="z-20 relative" src="{{page.media[s.image].url}}" >
+            <img class="z-20 relative" :src="inView ? '{{page.media[s.image].url}}' : ''" >
           </div>
         {% endfor %}
         <div 

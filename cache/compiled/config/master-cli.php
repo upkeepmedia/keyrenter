@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledConfig',
-    'timestamp' => 1683652853,
-    'checksum' => 'ac81a1cab63b13f666c97bef6f16a889',
+    'timestamp' => 1683664589,
+    'checksum' => '048ae8c3008ae96be00a4315c5961eed',
     'files' => [
         'user/config' => [
             'media' => [
@@ -27,7 +27,7 @@ return [
             ],
             'system' => [
                 'file' => 'user/config/system.yaml',
-                'modified' => 1683652835
+                'modified' => 1683664347
             ],
             'upkeep/upkeep' => [
                 'file' => 'user/config/upkeep/upkeep.yaml',
@@ -88,6 +88,10 @@ return [
             'plugins/problems' => [
                 'file' => 'user/plugins/problems/problems.yaml',
                 'modified' => 1679506277
+            ],
+            'plugins/webp' => [
+                'file' => 'user/plugins/webp/webp.yaml',
+                'modified' => 1677130398
             ],
             'plugins/devtools' => [
                 'file' => 'user/plugins/devtools/devtools.yaml',
@@ -325,6 +329,10 @@ return [
             'problems' => [
                 'enabled' => true,
                 'built_in_css' => true
+            ],
+            'webp' => [
+                'enabled' => true,
+                'quality' => 100
             ],
             'devtools' => [
                 'enabled' => true,

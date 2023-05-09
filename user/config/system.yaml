@@ -96,10 +96,10 @@ pages:
       - form
       - forms
 cache:
-  enabled: false
+  enabled: true
   check:
-    method: file
-  driver: auto
+    method: hash
+  driver: apcu
   prefix: g
   purge_at: "0 4 * * *"
   clear_at: "0 3 * * *"
@@ -107,7 +107,7 @@ cache:
   clear_images_by_default: false
   cli_compatibility: false
   lifetime: 604800
-  gzip: false
+  gzip: true
   allow_webserver_gzip: false
   redis:
     socket: "0"
@@ -170,13 +170,13 @@ images:
   cache_perms: "0755"
   debug: false
   auto_fix_orientation: true
-  seofriendly: false
+  seofriendly: true
   cls:
     auto_sizes: false
     aspect_ratio: false
     retina_scale: "1"
   defaults:
-    loading: auto
+    loading: lazy
   watermark:
     image: "system://images/watermark.png"
     position_y: center

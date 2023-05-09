@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledConfig',
-    'timestamp' => 1683656751,
-    'checksum' => '9008346cc877bb1ca2cc138509b54963',
+    'timestamp' => 1683664934,
+    'checksum' => '03b98a79055d134bf2e2a32008bb2a83',
     'files' => [
         'user/config' => [
             'media' => [
@@ -27,7 +27,7 @@ return [
             ],
             'system' => [
                 'file' => 'user/config/system.yaml',
-                'modified' => 1683656747
+                'modified' => 1683664931
             ],
             'upkeep/upkeep' => [
                 'file' => 'user/config/upkeep/upkeep.yaml',
@@ -88,6 +88,10 @@ return [
             'plugins/problems' => [
                 'file' => 'user/plugins/problems/problems.yaml',
                 'modified' => 1679506277
+            ],
+            'plugins/webp' => [
+                'file' => 'user/plugins/webp/webp.yaml',
+                'modified' => 1677130398
             ],
             'plugins/devtools' => [
                 'file' => 'user/plugins/devtools/devtools.yaml',
@@ -325,6 +329,10 @@ return [
             'problems' => [
                 'enabled' => true,
                 'built_in_css' => true
+            ],
+            'webp' => [
+                'enabled' => true,
+                'quality' => 100
             ],
             'devtools' => [
                 'enabled' => true,
@@ -3995,11 +4003,11 @@ node_modules'
                 ]
             ],
             'cache' => [
-                'enabled' => false,
+                'enabled' => true,
                 'check' => [
-                    'method' => 'file'
+                    'method' => 'hash'
                 ],
-                'driver' => 'auto',
+                'driver' => 'apcu',
                 'prefix' => 'g',
                 'purge_at' => '0 4 * * *',
                 'clear_at' => '0 3 * * *',
@@ -4007,7 +4015,7 @@ node_modules'
                 'clear_images_by_default' => false,
                 'cli_compatibility' => false,
                 'lifetime' => 604800,
-                'gzip' => false,
+                'gzip' => true,
                 'allow_webserver_gzip' => false,
                 'redis' => [
                     'socket' => '0',
@@ -4086,14 +4094,14 @@ node_modules'
                 'cache_perms' => '0755',
                 'debug' => false,
                 'auto_fix_orientation' => true,
-                'seofriendly' => false,
+                'seofriendly' => true,
                 'cls' => [
                     'auto_sizes' => false,
                     'aspect_ratio' => false,
                     'retina_scale' => '1'
                 ],
                 'defaults' => [
-                    'loading' => 'auto'
+                    'loading' => 'lazy'
                 ],
                 'watermark' => [
                     'image' => 'system://images/watermark.png',

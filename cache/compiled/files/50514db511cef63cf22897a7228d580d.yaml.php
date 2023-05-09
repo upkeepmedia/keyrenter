@@ -2,8 +2,8 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/Users/georgespapas/dev/keyrenter/user/config/system.yaml',
-    'modified' => 1683656747,
-    'size' => 4498,
+    'modified' => 1683664931,
+    'size' => 4495,
     'data' => [
         'absolute_urls' => false,
         'timezone' => NULL,
@@ -121,11 +121,11 @@ return [
             ]
         ],
         'cache' => [
-            'enabled' => false,
+            'enabled' => true,
             'check' => [
-                'method' => 'file'
+                'method' => 'hash'
             ],
-            'driver' => 'auto',
+            'driver' => 'apcu',
             'prefix' => 'g',
             'purge_at' => '0 4 * * *',
             'clear_at' => '0 3 * * *',
@@ -133,7 +133,7 @@ return [
             'clear_images_by_default' => false,
             'cli_compatibility' => false,
             'lifetime' => 604800,
-            'gzip' => false,
+            'gzip' => true,
             'allow_webserver_gzip' => false,
             'redis' => [
                 'socket' => '0',
@@ -212,14 +212,14 @@ return [
             'cache_perms' => '0755',
             'debug' => false,
             'auto_fix_orientation' => true,
-            'seofriendly' => false,
+            'seofriendly' => true,
             'cls' => [
                 'auto_sizes' => false,
                 'aspect_ratio' => false,
                 'retina_scale' => '1'
             ],
             'defaults' => [
-                'loading' => 'auto'
+                'loading' => 'lazy'
             ],
             'watermark' => [
                 'image' => 'system://images/watermark.png',
