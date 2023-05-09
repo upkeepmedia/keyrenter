@@ -1,4 +1,5 @@
-<div class="bg-green-200 absolute left-0 right-0 z-40 lg:py-10 mt-10"
+<div class="bg-green-200 absolute left-0 right-0 z-40 lg:py-10 mt-10 transition-all duration-500" 
+  :class="open ? 'translate-y-0 opacity-100' : '-translate-y-24 opacity-0'"
   x-show="open === '{{ page.slug }}'">
   <div class="mx-auto container px-10 flex flex-row flex-wrap relative">
     <div class="absolute -top-5 right-5" @click="open = false">

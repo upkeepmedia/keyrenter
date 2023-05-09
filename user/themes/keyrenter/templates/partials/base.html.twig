@@ -44,8 +44,9 @@
       : 'debug-screens'
     }}">
     {% block header %}
-      <div class="header delay-1000 lg:px-20 lg:pt-10 transition-all duration-700 ease-in-out" x-data="{inView: false}" x-intersect="inView = true" >
-        <div class="flex flex-row">
+      <div class="header delay-1000 mx-auto container lg:px-20 transition-all duration-700 ease-in-out" x-data="{inView: false}" x-intersect="inView = true" >
+        <div class="bg-red-600 rounded-b-2xl text-white float-right cursor-pointer py-2 px-5  font-bold hover:bg-red-700 transition-all duration-500" @click="openConvert = true" >Choose Your Next Step</div>
+        <div class="flex flex-row clear-both w-full">
           <a class="" href="{{ home_url|e }}">
             {{ media['theme://images/logo.png'].resize(180)|raw }}
           </a>
@@ -53,9 +54,9 @@
             <nav class="main-nav ml-auto my-auto text-lg font-bold text-neutral-600">
               {% include 'partials/navigation.html.twig' %}
             </nav>
-          {% endblock %}
-          <div class="bg-red-600 rounded-b-2xl text-white absolute top-0 right-20 cursor-pointer py-2 px-5  font-bold hover:bg-red-700 transition-all duration-500" @click="openConvert = true" >Choose Your Next Step</div>
+          {% endblock %}          
         </div>
+
       </div>
     {% endblock %}
     {% block convert %}

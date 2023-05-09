@@ -28,4 +28,31 @@
   .btn {
     @apply border-4 border-green-700 text-green-700 text-lg font-bold rounded-full px-5 py-2 inline-block mt-6;
   }
+  .content ul {
+    @apply list-disc mb-8 pl-4;
+  }
+
+  .content h2,
+  .content .h2 {
+    @apply text-3xl lg:text-4xl mb-4 mt-8 font-bold;
+  }
+
+  .content h3,
+  .content .h3 {
+    @apply text-2xl lg:text-3xl mb-3 mt-6 font-bold;
+  }
+
+  .content h4,
+  .content .h4 {
+    @apply text-xl lg:text-2xl mb-2 mt-4 font-bold;
+  }
+
+  .content h5,
+  .content .h5 {
+    @apply font-bold;
+    font-size: 1.25rem;
+  }
+  .content p {
+    @apply mb-8;
+  }
 }

@@ -1,4 +1,4 @@
-<div class="bg-green-900 relative" x-data="{inView: false}" x-intersect.half="inView = true">
+<div class="bg-green-900 relative mt-48" x-data="{inView: false}" x-intersect.half="inView = true">
   <iframe :src="inView ? 'https://www.google.com/maps/embed/v1/place?key={{
     upkeep.places_api_key
     }}&q=place_id:{{ upkeep.place_id }}' :''"

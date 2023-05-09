@@ -1,13 +1,17 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledConfig',
-    'timestamp' => 1682692131,
-    'checksum' => '666a13c4ec9c4bb107f82b8e05bcf459',
+    'timestamp' => 1683652853,
+    'checksum' => 'ac81a1cab63b13f666c97bef6f16a889',
     'files' => [
         'user/config' => [
             'media' => [
                 'file' => 'user/config/media.yaml',
                 'modified' => 1682444084
+            ],
+            'plugins/flex-objects' => [
+                'file' => 'user/config/plugins/flex-objects.yaml',
+                'modified' => 1683638872
             ],
             'plugins/shortcode-core' => [
                 'file' => 'user/config/plugins/shortcode-core.yaml',
@@ -23,7 +27,11 @@ return [
             ],
             'system' => [
                 'file' => 'user/config/system.yaml',
-                'modified' => 1682632884
+                'modified' => 1683652835
+            ],
+            'upkeep/upkeep' => [
+                'file' => 'user/config/upkeep/upkeep.yaml',
+                'modified' => 1683641654
             ],
             'versions' => [
                 'file' => 'user/config/versions.yaml',
@@ -207,9 +215,10 @@ return [
                     ]
                 ],
                 'directories' => [
-                    0 => 'blueprints://flex-objects/pages.yaml',
-                    1 => 'blueprints://flex-objects/user-accounts.yaml',
-                    2 => 'blueprints://flex-objects/user-groups.yaml'
+                    7 => 'blueprints://flex-objects/pages.yaml',
+                    10 => 'blueprints://flex-objects/upkeep.yaml',
+                    11 => 'blueprints://flex-objects/user-accounts.yaml',
+                    12 => 'blueprints://flex-objects/user-groups.yaml'
                 ]
             ],
             'admin' => [
@@ -3934,7 +3943,7 @@ node_modules'
                 ],
                 'markdown' => [
                     'extra' => true,
-                    'auto_line_breaks' => false,
+                    'auto_line_breaks' => true,
                     'auto_url_links' => false,
                     'escape_markup' => false,
                     'special_chars' => [
@@ -4154,6 +4163,50 @@ node_modules'
                 'yaml_compat' => true,
                 'twig_compat' => true,
                 'blueprint_compat' => true
+            ]
+        ],
+        'upkeep' => [
+            'upkeep' => [
+                'contact_us' => '/home',
+                'area_tag' => 'span',
+                'areas_page' => '/areas-we-serve',
+                'company_name' => 'Keyrenter Property Management Boise',
+                'state' => 'Idaho',
+                'address' => '999 West Main Street, Suite 100
+Boise, ID 83702
+(208) 856-8000',
+                'navigation_style' => 'uppercase',
+                'banner' => false,
+                'banner_classes' => 'bg-gray-800 text-white p-4',
+                'footer_case' => 'uppercase',
+                'footer_second_title' => 'Our Company',
+                'footer_right' => 'areas',
+                'footer_prefix' => 'Property Management Websites by ',
+                'footer_ada' => false,
+                'prefooter_enabled' => false,
+                'prefooter_button_page' => '/home',
+                'fixed_enabled' => false,
+                'testimonial' => '0',
+                'favicons' => [
+                    
+                ],
+                'bg' => [
+                    
+                ],
+                'video_bg' => [
+                    
+                ],
+                'video_bg_poster' => [
+                    
+                ],
+                'logo' => [
+                    
+                ],
+                'logo_svg' => [
+                    
+                ],
+                'places_api_key' => 'AIzaSyB3yegJnmfQ6G7xhucyORVeMVY1tT8mXpc',
+                'place_id' => 'ChIJ58IvGtv5rlQRZ1vwBQAXuCc'
             ]
         ],
         'versions' => [

@@ -2,8 +2,8 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/Users/georgespapas/dev/keyrenter/user/config/system.yaml',
-    'modified' => 1683639588,
-    'size' => 4502,
+    'modified' => 1683656747,
+    'size' => 4498,
     'data' => [
         'absolute_urls' => false,
         'timezone' => NULL,

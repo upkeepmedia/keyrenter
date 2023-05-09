@@ -3,7 +3,7 @@ timezone: null
 param_sep: ":"
 wrapped_site: false
 reverse_proxy_setup: false
-force_ssl: true
+force_ssl: false
 force_lowercase_urls: true
 custom_base_url: null
 username_regex: "^[a-z0-9_-]{3,16}$"
@@ -96,9 +96,9 @@ pages:
       - form
       - forms
 cache:
-  enabled: true
+  enabled: false
   check:
-    method: hash
+    method: file
   driver: auto
   prefix: g
   purge_at: "0 4 * * *"
@@ -122,9 +122,9 @@ cache:
     server: null
     port: null
 twig:
-  cache: true
-  debug: false
-  auto_reload: false
+  cache: false
+  debug: true
+  auto_reload: true
   autoescape: true
   undefined_functions: true
   undefined_filters: true
@@ -150,7 +150,7 @@ assets:
   collections:
     jquery: "system://assets/jquery/jquery-3.x.min.js"
 errors:
-  display: 0
+  display: 1
   log: true
 log:
   handler: file
@@ -160,7 +160,7 @@ log:
 debugger:
   enabled: false
   provider: clockwork
-  censored: true
+  censored: false
   shutdown:
     close_connection: true
   twig: true
@@ -195,7 +195,7 @@ session:
   timeout: 1800
   name: grav-site
   uniqueness: path
-  secure: true
+  secure: false
   secure_https: true
   httponly: true
   samesite: Lax
