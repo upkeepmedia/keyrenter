@@ -1,0 +1,18 @@
+<ul class="flex flex-row" x-data="{open: 'tenants'}">
+  {% for page in pages.children.visible|slice(0, 4) %}
+    <li class="{{ page.active|e }}">
+      <a class="px-4 cursor-pointer py-1 block rounded-full border-4 border-transparent hover:border-green-800 transition-all duration-200" @click="open = '{{page.slug}}'"> 
+      {{ page.menu }}
+      </a>
+      {% if page.template == 'areas' %}
+      {% include 'partials/navigation/areas.html.twig' with {
+        page: page
+      } %}
+      {% else %}
+      {% include 'partials/navigation/big.html.twig' with {
+        page: page
+      } %}
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

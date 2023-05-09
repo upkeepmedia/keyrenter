@@ -1,0 +1,13 @@
+/*@import 'yourcssfile.css';*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply lg:text-lg text-green-900;
+    font-family: "agenda", "arial", sans-serif;
+  }
+}

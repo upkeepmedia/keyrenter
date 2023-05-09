@@ -1,0 +1,79 @@
+{% set extension = config.theme.production ? '.min' : '' %}
+<!DOCTYPE html>
+<html lang="{{ (grav.language.getActive
+    ?
+    : grav.config.site.default_lang)|e }}">
+  <head>
+    {% block head %}
+      <meta charset="utf-8" />
+      <title>
+        {% if header.title %}
+          {{ header.title|e }} |
+        {% endif %}{{ site.title|e }}
+      </title>
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      {% include 'partials/metadata.html.twig' %}
+
+      <link rel="icon"
+        type="image/png"
+        href="{{ url('theme://images/logo.png')|e }}" />
+      <link rel="canonical" href="{{ page.url(true, true)|e }}" />
+    {% endblock %}
+
+    {% block stylesheets %}
+      {% do assets.addCss('https://use.typekit.net/fcg6zas.css', 98) %}
+      {% do assets.addCss('theme://dist/css/site' ~ extension ~ '.css', 98) %}
+    {% endblock %}
+
+    {% block javascripts %}
+      {% do assets.addJs('theme://dist/js/main' ~ extension ~ '.js', 98) %}
+    {% endblock %}
+
+    {% block assets deferred %}
+    {{ assets.css()|raw }}
+    {{ assets.js()|raw }}
+    {% endblock %}
+  </head>
+  <body id="top"
+    x-data="{step: 'start', openConvert: false, atTop: false}"
+    class="bg-green-50 {{ page.header.body_classes|e }} {{
+    config.theme.production
+      ?
+      : 'debug-screens'
+    }}">
+    {% block header %}
+      <div class="header delay-1000 lg:px-20 lg:pt-10 transition-all duration-700 ease-in-out" x-data="{inView: false}" x-intersect="inView = true" >
+        <div class="flex flex-row">
+          <a class="" href="{{ home_url|e }}">
+            {{ media['theme://images/logo.png'].resize(180)|raw }}
+          </a>
+          {% block header_navigation %}
+            <nav class="main-nav ml-auto my-auto text-lg font-bold text-neutral-600">
+              {% include 'partials/navigation.html.twig' %}
+            </nav>
+          {% endblock %}
+          <div class="bg-red-600 rounded-b-2xl text-white absolute top-0 right-20 cursor-pointer py-2 px-5  font-bold hover:bg-red-700 transition-all duration-500" @click="openConvert = true" >Choose Your Next Step</div>
+        </div>
+      </div>
+    {% endblock %}
+    {% block convert %}
+      {% include 'partials/convert.html.twig' %}
+    {% endblock %}
+    {% block body %}
+      <section id="body">
+        {% block content %}
+        {% endblock %}
+      </section>
+    {% endblock %}
+
+    {% block footer %}
+      {% include 'partials/footer.html.twig' %}
+    {% endblock %}
+
+    {% block bottom %}
+      {{ assets.js('bottom')|raw }}
+    {% endblock %}
+  </body>
+</html>

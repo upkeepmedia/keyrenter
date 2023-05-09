@@ -1,0 +1,54 @@
+<div class="bg-green-200 absolute left-0 right-0 z-40 lg:py-10 mt-10"
+  x-show="open === '{{ page.slug }}'">
+  <div class="mx-auto container px-10 flex flex-row flex-wrap relative">
+    <div class="absolute -top-5 right-5" @click="open = false">
+      <svg xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="3"
+        stroke="currentColor"
+        class="w-10 h-10">
+        <path stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </div>
+
+    <div class="w-full p-5">
+        <div class="h3 ">
+            {{page.header.big_menu.title ?? page.title }}
+        </div>
+            {% include 'partials/dash.html.twig' %}
+        <div class="text-2xl font-normal">
+            {{page.header.big_menu.subtitle}}
+        </div>
+    </div>
+
+    {% for child in page.children if child.header.big_menu.enabled %}
+      <a class="p-5 lg:w-1/3 hover:bg-white hover:text-green-600 transition-all duration-300 rounded-2xl"
+        href="{{ child.url }}">
+        <div class="text-2xl font-bold">
+          {{ child.menu }}
+        </div>
+        <div class="font-normal">
+          {{ child.header.big_menu.subtitle }}
+        </div>
+      </a>
+    {% endfor %}
+    <div class="lg:w-1/3 border-4 border-transparent p-5">
+      <div class="text-2xl font-bold">
+        More {{ page.menu|singularize }} Links
+      </div>
+      {% for child in page.children if not child.header.big_menu.enabled %}
+        <div class="pr-10">
+          <div class="font-bold">
+            {{ child.menu }}
+          </div>
+          <div class="font-normal leading-none">
+            {{ child.header.big_menu.subtitle }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

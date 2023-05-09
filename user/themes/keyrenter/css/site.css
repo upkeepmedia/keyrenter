@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply text-green-900;
+    font-family: "agenda", "Helvetica Neue", "Arial", sans-serif;
+  }
+  body {
+    @apply text-xl;
+  }
+  [x-cloak] {
+    display: none !important;
+  }
+  .pretitle {
+    @apply text-2xl font-bold text-green-500 transition-all duration-500 ease-in-out;
+  }
+  .h1 {
+    @apply text-7xl leading-[0.8] font-bold my-5 block relative transition-all duration-500 ease-out;
+  }
+  .h2 {
+    @apply text-6xl  leading-[0.8] font-bold my-5 block relative transition-all duration-500 ease-out;
+  }
+  .h3 {
+    @apply text-4xl  leading-[0.8] font-bold block relative transition-all duration-500 ease-out;
+  }
+  .btn {
+    @apply border-4 border-green-700 text-green-700 text-lg font-bold rounded-full px-5 py-2 inline-block mt-6;
+  }
+}

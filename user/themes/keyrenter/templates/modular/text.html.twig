@@ -1,0 +1,23 @@
+<div class="container mx-auto flex flex-row px-20 py-10" x-data="{inView: false}" x-intersect.half="inView = true" x-cloak >
+  <div class="w-3/4 mx-auto text-center overflow-hidden">
+  <div class="relative group overflow-hidden mx-auto bg-green-50 z-10">
+    <img 
+      :class="inView ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'"
+      class="transition-all duration-700 delay-300 ease-in-out w-72 mx-auto relative bottom-0 z-10 px-5"
+      src="{{ page.media[page.header.featured_image].url()|raw }}" />
+    <div x-cloak
+      :class="inView ? 'scale-x-1' : 'scale-x-0'"
+      class="bg-green-900 h-0.5 w-full duration-500 ease-in-out origin-center block absolute bottom-0 z-10 transition-all"></div>
+    <div x-cloak
+      :class="inView ? 'translate-y-24' : 'translate-y-full'"
+      class=" bg-green-300 absolute delay-300 ease-in-out bottom-0 h-52 left-1/4 w-1/2 duration-500 origin-center rounded-t-full transition-all"></div>
+  </div>
+    <h2 x-cloak class="h2"  :class="inView ? 'opacity-100 translate-y-0':'opacity-0 -translate-y-24'" >
+      <span class="relative z-0">{{page.header.heading}}</span>
+    </h2>
+    {% include 'partials/dash.html.twig' with {classes: 'mx-auto'} %}
+    <div class="px-20 py-2 text-2xl leading-relaxed transition-all duration-500 delay-500" :class="inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'">
+        {{page.content|raw}}
+    </div>
+  </div>
+</div>

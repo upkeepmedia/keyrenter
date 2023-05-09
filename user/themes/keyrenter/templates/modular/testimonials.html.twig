@@ -1,0 +1,52 @@
+<div class="transition-all duration-700" x-data="{inView: false}" x-intersect.half="inView = true" >
+<div class="flex flex-row container mx-auto p-20">
+    <div class="w-2/5 relative overflow-hidden">
+        <img 
+        :class="inView ? 'left-0' : '-left-full'"
+        class="absolute bottom-8 z-10 transition-all duration-500 delay-500"
+        src="{{page.media[page.header.featured_image].url}}" />
+        <div 
+        :class="inView ? 'scale-y-100' : 'scale-y-0'"
+        class="bg-green-900 w-0.5 h-96 duration-500 ease-in-out origin-center block absolute bottom-0 left-0 z-20 transition-all"></div>
+        <div x-cloak
+        :class="inView ? 'left-0' : '-left-full'"
+        class=" bg-green-300 absolute delay-300 ease-in-out left-0 h-80 mt-8 w-72 duration-500 bottom-8   origin-center rounded-r-full transition-all"></div>
+    </div>
+    <div class="w-3/5 text-right transition-all duration-500 " x-data="{activeTestimonial: 1}" :class="inView ? 'opacity-100 translate-x-0':'opacity-0 translate-x-16'">
+        {{svg_image('theme://images/Testimonials.svg','inline-block ml-auto')|raw}}
+        <div class="">
+        {{page.content|markdown|raw}}
+        </div>
+        {{svg_image('theme://images/stars.svg','inline-block ml-auto mt-5')|raw}}
+        {% for t in page.header.testimonials %}
+            <div class="pt-8 pb-20 pl-20 " x-show="activeTestimonial == {{loop.index}}" >
+                {{t.text}}
+                <div class="text-left">
+                <div class="font-bold text-2xl mt-10">{{t.author}}</div>
+                <div class="font-bold">{{t.title}}</div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="">
+            <a class="float-right" @click="activeTestimonial++">
+            <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 55 55">
+            <g id="Group_184" data-name="Group 184" transform="translate(-1067 -5352.652)">
+                <circle id="Ellipse_50" data-name="Ellipse 50" cx="25" cy="25" r="25" transform="translate(1069.5 5355.152)" fill="none" stroke="#478914" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+                <path id="Path_410" data-name="Path 410" d="M3215.581,4482.92l9.94,9.94-9.94,9.94" transform="translate(-2124.081 887.232)" fill="none" stroke="#478914" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+            </g>
+            </svg>
+
+            </a>
+
+            <a class="float-right mr-5" @click="activeTestimonial--">
+            <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 55 55">
+                <g id="Group_185" data-name="Group 185" transform="translate(-997 -5352.652)">
+                    <circle id="Ellipse_51" data-name="Ellipse 51" cx="25" cy="25" r="25" transform="translate(1049.5 5405.152) rotate(180)" fill="none" stroke="#478914" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+                    <path id="Path_411" data-name="Path 411" d="M3215.581,4482.92l9.94,9.94-9.94,9.94" transform="translate(4243.081 9873.073) rotate(180)" fill="none" stroke="#478914" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+                </g>
+            </svg>
+            </a>
+        </div>
+    </div>
+</div>
+</div>

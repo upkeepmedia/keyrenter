@@ -1,0 +1,37 @@
+<div class="container mx-auto flex flex-row px-20 py-10" x-data="{inView: false}"  x-cloak>  
+  <div class="w-1/2">
+    <div class="sticky top-10 min-h-screen">
+      <div class="relative " x-intersect.full="inView = 1">
+        <div x-cloak class="h2 pr-10"  :class="inView ? 'opacity-100 translate-y-0':'opacity-0 -translate-x-10'" >
+          <div class="relative z-10">{{page.content|raw}}</div>
+        </div>
+        {% for s in page.header.services %}
+          <div class="origin-right transition-all duration-700 delay-100 right-0 mt-24 absolute z-10" :class="inView === {{loop.index}} ? 'translate-x-8 rotate-12 scale-110': 'translate-x-full rotate-0'">
+          
+            {% for icon in s.floating_icons %}
+              <div class="absolute z-10 text-green-500">
+              {{svg_image(page.media[icon].filepath)|replace({'alpine':':class', 'index':loop.parent.loop.index})|raw}}
+              </div>
+            {% endfor %}
+            <img class="z-20 relative" src="{{page.media[s.image].url}}" >
+          </div>
+        {% endfor %}
+        <div 
+          :class="inView ? 'scale-y-125' : 'scale-y-0'"
+          class="bg-green-900 w-0.5 h-96 duration-500 delay-700 ease-in-out origin-center block absolute right-0 z-20 transition-all"></div>
+        <div x-cloak
+          :class="inView ? 'translate-x-0' : 'translate-x-full'"
+          class=" bg-green-300 absolute ease-in-out right-0 h-80  mt-8 w-52 duration-500 origin-center rounded-l-full transition-all "></div>
+      </div> 
+    </div> 
+  </div> 
+  <div class="w-1/2 py-20 bg-green-50 relatie z-20">
+      
+    {% for s in page.header.services %}
+      <div class=" {{loop.last ? 'pb-24':''}} {{loop.first ? 'pt-36':'pt-72 2xl:pt-24'}} px-10" x-intersect.full="inView = {{loop.index}}">
+        {{svg_image(page.media[s.pretext_icon].filepath,'w-24 2xl:w-48 mb-5 max-w-none')|raw}}
+        {{s.text|markdown|shortcodes|raw}}
+      </div>
+    {% endfor %}
+  </div>   
+</div>

@@ -1,0 +1,15 @@
+<svg width="{{ 5 * 20 - 5 }}"
+  height="21"
+  fill="currentColor"
+  x-data="{inView: false}"
+  x-intersect="inView = true"
+  class="text-green-500 my-3 block {{ classes }}">
+  {% for shift in range(1, 5) %}
+    <circle cx="{{ shift * 20 - 14 }}"
+      cy="16"
+      r="5"
+      class="transition duration-500 origin-center"
+      style="transition-delay: {{ shift * 100 }}ms"
+      :class="inView ? 'scale-100':'scale-0'" />
+  {% endfor %}
+</svg>
